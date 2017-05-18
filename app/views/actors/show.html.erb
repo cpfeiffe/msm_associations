@@ -1,5 +1,5 @@
 <div class="page-header">
-  <h3>Actor #<%= @actor.id %></h3>
+  <h3>Actor #<%= @actor.name %></h3>
 </div>
 
 <div class="row">
@@ -18,16 +18,16 @@
       <dd><%= @actor.image_url %></dd>
 
       <dt>Characters</dt>
-      <!-- <dd><%= Character.where(:actor_id => @actor.id).count %></dd> -->
+      <dd><%= Character.where(:actor_id => @actor.id).count %></dd>
 
-      <!-- <%= @actor.characters.count %> -->
+      <%#= @actor.characters.count %>
 
     </dl>
 
     <ul>
 
-    <% Character.where(:actor_id => @actor.id).each do |actor| %>
-      <li><a href="/actors/<%= name %>"><%= actor %></a></li>
+    <% Character.where(:actor_id => @actor.id).each do |character| %>
+      <li><a href="/characters/<%= character.id %>"><%= Movie.find_by(id: character.movie_id).title %></a></li>
 
       <% end %>
 

@@ -7,9 +7,7 @@ class MoviesController < ApplicationController
 
   def show
     @movie = Movie.find(params[:id])
-
-    @character = 
-
+    @character = Character.new
     render("movies/show.html.erb")
   end
 
